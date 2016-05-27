@@ -19385,6 +19385,14 @@ define("tinymce/Formatter", [
 				}
 
 				Hooks.postProcess(name, ed);
+				rng = selection.getRng();
+				ed.fire('AfterApplyFormat', {
+					range: rng,
+					format: format,
+					name: name,
+					ars: vars,
+					node: ed.$(rng.commonAncestorContainer).closest(name)[0]
+				});
 			}
 		}
 
