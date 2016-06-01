@@ -20494,6 +20494,11 @@ define("tinymce/Formatter", [
 				return FALSE;
 			}
 
+			ed.fire('BeforeRemoveFormat', {
+				format: format,
+				node: node
+			});
+
 			// Should we compare with format attribs and styles
 			if (format.remove != 'all') {
 				// Remove styles
